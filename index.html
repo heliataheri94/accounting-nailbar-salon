@@ -3,10 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/custom.css"/>
 <title>فاکتور خدمات ناخن</title>
 
 <style>
+
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Medium-FD.eot");
+  src: url('/fonts/Vazir-Medium-FD.eot?#iefix') format('embedded-opentype'),
+       url("/fonts/Vazir-Medium-FD.woff2"),
+       url("/fonts/Vazir-Medium-FD.woff"),
+       url("/fonts/Vazir-Medium-FD.ttf"); 
+}
+
+*{
+    box-sizing:border-box;
+    font-family:"Vazir";
+}
+
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffe6ec,#f7f7f7);
+    padding:15px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+    margin:0;
+    color:#d94c73;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-top:0;
+    color:#444;
+}
+
+.service{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.service:last-child{
+    border:none;
+}
+
+input[type="checkbox"]{
+    width:20px;
+    height:20px;
+}
+
+input[type="number"],
+input[type="text"]{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    margin-top:6px;
+    font-size:15px;
+}
+
+.label{
+    margin-top:10px;
+    font-size:14px;
+    color:#555;
+}
+
+.extra-item{
+    background:#fafafa;
+    padding:10px;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    margin-top:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.add-btn{
+    background:#f1f1f1;
+}
+
+.primary{
+    background:#e65a7a;
+    color:white;
+}
+
+.reset{
+    background:#444;
+    color:white;
+}
+
+.total{
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    color:#d94c73;
+    margin-top:15px;
+}
+
+@media(min-width:700px){
+    .grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+    }
+}
 
 </style>
 </head>
@@ -71,9 +198,60 @@
 </div>
 
 <script>
+document.querySelectorAll(".check")
+.forEach(c=>c.addEventListener("change",calculate));
+
+document.getElementById("discount").addEventListener("input",calculate);
+document.getElementById("salonFee").addEventListener("input",calculate);
+
+function addExtra(){
+
+    let div=document.createElement("div");
+    div.className="extra-item";
+
+    div.innerHTML=`
+        <input type="text" placeholder="مثلاً ناخن شکسته">
+        <input type="number" placeholder="مبلغ" class="extraPrice">
+        <button onclick="this.parentElement.remove();calculate()">حذف</button>
+    `;
+
+    document.getElementById("extraCosts").appendChild(div);
+
+    div.querySelector(".extraPrice")
+        .addEventListener("input",calculate);
+}
+
+function calculate(){
+
+    let total=0;
+
+    document.querySelectorAll(".check:checked")
+        .forEach(el=> total+=Number(el.value));
+
+    document.querySelectorAll(".extraPrice")
+        .forEach(el=> total+=Number(el.value||0));
+
+    total+=Number(document.getElementById("salonFee").value||0);
+
+    let discount=Number(document.getElementById("discount").value||0);
+    total -= total*discount/100;
+
+    document.getElementById("finalPrice").innerText=
+        total.toLocaleString();
+}
+
+function resetInvoice(){
+
+    document.querySelectorAll("input").forEach(i=>{
+        if(i.type==="checkbox") i.checked=false;
+        else i.value="";
+    });
+
+    document.getElementById("extraCosts").innerHTML="";
+    calculate();
+}
 
 
 </script>
-<script src="/js/app.js"></script>
 </body>
 </html>
