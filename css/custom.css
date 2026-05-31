@@ -1,18 +1,16 @@
 
 @font-face {
   font-family: "Vazir";
-  src: url("/css/custom.css");
-
-  src: url("/css/Vazir-Medium-FD.eot");
-  src: url('/css/Vazir-Medium-FD.eot?#iefix') format('embedded-opentype'),
-       url("/css/Vazir-Medium-FD.woff2"),
-       url("/css/Vazir-Medium-FD.woff"),
-       url("/css/Vazir-Medium-FD.ttf");
+  src: url("/fonts/Vazir-Medium-FD.eot");
+  src: url('/fonts/Vazir-Medium-FD.eot?#iefix') format('embedded-opentype'),
+       url("/fonts/Vazir-Medium-FD.woff2"),
+       url("/fonts/Vazir-Medium-FD.woff"),
+       url("/fonts/Vazir-Medium-FD.ttf"); 
 }
 
 *{
     box-sizing:border-box;
-    font-family:'Vazir' !important;
+    font-family:"Vazir";
 }
 
 body{
