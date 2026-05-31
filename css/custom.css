@@ -1,0 +1,119 @@
+
+*{
+    box-sizing:border-box;
+    font-family:'Vazirmatn', sans-serif;
+}
+
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffe6ec,#f7f7f7);
+    padding:15px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+    margin:0;
+    color:#d94c73;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-top:0;
+    color:#444;
+}
+
+.service{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.service:last-child{
+    border:none;
+}
+
+input[type="checkbox"]{
+    width:20px;
+    height:20px;
+}
+
+input[type="number"],
+input[type="text"]{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    margin-top:6px;
+    font-size:15px;
+}
+
+.label{
+    margin-top:10px;
+    font-size:14px;
+    color:#555;
+}
+
+.extra-item{
+    background:#fafafa;
+    padding:10px;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    margin-top:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.add-btn{
+    background:#f1f1f1;
+}
+
+.primary{
+    background:#e65a7a;
+    color:white;
+}
+
+.reset{
+    background:#444;
+    color:white;
+}
+
+.total{
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    color:#d94c73;
+    margin-top:15px;
+}
+
+@media(min-width:700px){
+    .grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+    }
+}

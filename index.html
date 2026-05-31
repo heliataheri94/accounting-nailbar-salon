@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/custom.css"/>
+<title>فاکتور خدمات ناخن</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>💅 فاکتور خدمات ناخن</h1>
+</div>
+
+<div class="grid">
+
+<!-- دست -->
+<div class="card">
+<h3>خدمات دست</h3>
+
+<div class="service">ژلیش دست (450) <input type="checkbox" value="450000" class="check"></div>
+<div class="service">کاشت دست (850) <input type="checkbox" value="850000" class="check"></div>
+<div class="service">ترمیم (580) <input type="checkbox" value="580000" class="check"></div>
+<div class="service"> لمینت (550) <input type="checkbox" value="550000" class="check"></div>
+
+</div>
+
+<!-- پا -->
+<div class="card">
+<h3>خدمات پا</h3>
+
+<div class="service">پدیکور (500) <input type="checkbox" value="500000" class="check"></div>
+<div class="service">ژلیش پا (300) <input type="checkbox" value="300000" class="check"></div>
+<div class="service">کاشت پا (120) <input type="checkbox" value="120000" class="check"></div>
+<div class="service">ترمیم پا (100) <input type="checkbox" value="100000" class="check"></div>
+
+</div>
+
+</div>
+
+<!-- هزینه‌ها -->
+<div class="card">
+
+<div class="label">هزینه سالن</div>
+<input type="number" id="salonFee" placeholder="مثلاً 200000">
+
+<div class="label">تخفیف (%)</div>
+<input type="number" id="discount" placeholder="درصد">
+
+<h3>هزینه‌های دستی</h3>
+<div id="extraCosts"></div>
+
+<button class="add-btn" onclick="addExtra()">+ افزودن هزینه دستی</button>
+
+<div class="total">
+مبلغ نهایی: <span id="finalPrice">0</span> تومان
+</div>
+
+<button class="primary" onclick="calculate()">محاسبه</button>
+<button class="reset" onclick="resetInvoice()">پاک کردن فاکتور</button>
+
+</div>
+
+</div>
+
+<script>
+
+
+</script>
+<script src="/js/app.js"></script>
+</body>
+</html>
